@@ -33,7 +33,15 @@ let g:coc_node_path='~/.nvm/versions/node/v8.17.0/bin/node'
 "Plug 'prettier/vim-prettier', { 'do': 'npm install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
-"autocmd BufWritePre *.js Neoformat
+
+" number of spaces per indentation level: a number or 'auto' (use
+" softtabstop)
+" default: 'auto'
+let g:prettier#config#tab_width = 2
+
+" use tabs instead of spaces: true, false, or auto (use the expandtab setting).
+" default: 'auto'
+let g:prettier#config#use_tabs = 'false'
 
 "let ayucolor="dark"
 "colorscheme ayu
@@ -76,6 +84,7 @@ let g:ale_fixers = {
 \}
 
 let g:ale_fix_on_save = 1
+let g:prettier#config#single_quote = 'true'
 let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5'
 
 "Split auto resize
@@ -100,10 +109,12 @@ set wildignore+=**/node_modules/**
 set swapfile
 set dir=~/.vim/.tmp
 
-filetype plugin indent on
-" show existing tab with 4 spaces width
-set tabstop=2
-" when indenting with '>', use 4 spaces width
-set shiftwidth=2
-" On pressing tab, insert 4 spaces
-set expandtab
+function! UseSpaces()
+  set tabstop=2     " Size of a hard tabstop (ts).
+  set shiftwidth=2  " Size of an indentation (sw).
+  set expandtab     " Always uses spaces instead of tab characters (et).
+  set softtabstop=0 " Number of spaces a <Tab> counts for. When 0, featuer is off (sts).
+  set autoindent    " Copy indent from current line when starting a new line.
+  set smarttab      " Inserts blanks on a <Tab> key (as per sw, ts and sts).
+endfunction
+call UseSpaces()
