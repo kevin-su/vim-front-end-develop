@@ -8,10 +8,22 @@ Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
 
+"Plug 'maxmellon/vim-jsx-pretty'
+Plug 'tpope/vim-commentary'
+Plug 'suy/vim-context-commentstring'
+
 "Plug 'valloric/youcompleteme'
 "Plug 'honza/vim-snippets'
 "Plug 'Yggdroot/indentLine'
+"Plug 'tpope/vim-fugitive'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'mattn/emmet-vim'
+"Plug 'christoomey/vim-tmux-navigator'
 Plug 'preservim/nerdtree'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'rking/ag.vim'
 Plug 'xolox/vim-session'
 Plug 'xolox/vim-misc'
 
@@ -34,6 +46,21 @@ call plug#end()
 " Vim with all enhancements
 let g:coc_node_path='~/.nvm/versions/node/v8.17.0/bin/node'
 "command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
+" fzf
+" Empty value to disable preview window altogether
+let g:fzf_preview_window = ''
+
+" Always enable preview window on the right with 60% width
+let g:fzf_preview_window = 'right:60%'
+
+" ag vim
+let g:ag_working_path_mode="r"
+command! -bang -nargs=* Ag
+\ call fzf#vim#ag(<q-args>,
+\                 <bang>0 ? fzf#vim#with_preview('up:60%')
+\                         : fzf#vim#with_preview('right:50%:hidden', '?'),
+\                 <bang>0)
 
 "let g:prettier#exec_cmd_path = '~/.nvm/versions/node/v8.17.0/bin/prettier'
 "Plug 'prettier/vim-prettier', { 'do': 'npm install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
@@ -79,7 +106,7 @@ else
   call UseThemeJellybeans()
 endif
 
-map <silent> <C-n> :NERDTreeToggle<CR>
+nnoremap <silent> <C-n> :NERDTreeToggle<CR>
 set autochdir
 let NERDTreeChDirMode=2
 nnoremap <leader>n :NERDTree .<CR>
@@ -138,3 +165,6 @@ vnoremap <C-c> :w !pbcopy<CR><CR> noremap <C-v> :r !pbpaste<CR><CR>
 
 let g:session_autosave = 'yes'
 let g:session_autoload = 'yes'
+
+set statusline+=%F
+set listchars=eol:$
