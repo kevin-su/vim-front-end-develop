@@ -8,6 +8,10 @@ Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
 
+Plug 'elzr/vim-json'
+Plug 'plasticboy/vim-markdown'
+Plug 'hdima/python-syntax'
+
 "Plug 'maxmellon/vim-jsx-pretty'
 Plug 'tpope/vim-commentary'
 Plug 'suy/vim-context-commentstring'
@@ -26,6 +30,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'rking/ag.vim'
 Plug 'xolox/vim-session'
 Plug 'xolox/vim-misc'
+Plug 'severin-lemaignan/vim-minimap'
 
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'neoclide/coc.nvim', {'do': 'npm install --frozen-lockfile'}
@@ -37,8 +42,9 @@ Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 Plug 'tpope/vim-surround'
 
 " themes
-Plug 'nanotech/jellybeans.vim'
-Plug 'ayu-theme/ayu-vim'
+"Plug 'ayu-theme/ayu-vim'
+"Plug 'nanotech/jellybeans.vim'
+Plug 'rafi/awesome-vim-colorschemes'
 
 " end vim-plug
 call plug#end()
@@ -64,7 +70,6 @@ command! -bang -nargs=* Ag
 
 "let g:prettier#exec_cmd_path = '~/.nvm/versions/node/v8.17.0/bin/prettier'
 "Plug 'prettier/vim-prettier', { 'do': 'npm install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
-let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
 " number of spaces per indentation level: a number or 'auto' (use
@@ -76,17 +81,27 @@ let g:prettier#config#tab_width = 2
 " default: 'auto'
 let g:prettier#config#use_tabs = 'false'
 
-function! UseThemeJellybeans()
+let g:prettier#autoformat = 0
+let g:prettier#quickfix_enabled = 0
+let g:prettier#quickfix_auto_focus = 0
+
+function! UseThemeTerm()
   colorscheme jellybeans
   let g:jellybeans_use_lowcolor_black = 0
 
   let g:jellybeans_overrides = {
-  \    'Todo': { 'guifg': '303030', 'guibg': 'f0f000',
+  \  'Todo': { 'guifg': '303030', 'guibg': 'f0f000',
   \              'ctermfg': 'Black', 'ctermbg': 'Yellow',
   \              'attr': 'bold' },
-  \    'Comment': { 'guifg': '999999' },
-  \    'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
-  \    'MatchParen': { 'guifg': 'ffffff', 'guibg': '556779' },
+  \  'Comment': { 'guifg': '999999' },
+  \  'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
+  \  'MatchParen': { 'guifg': 'ffffff', 'guibg': '556779' },
+  \  'SpecialKey': { '256ctermbg': 'none', '256ctermfg': 'Darkgray' },
+  \  'Whitespace': { '256ctermbg': 'none', '256ctermfg': 'Darkgray' },
+  \  'SpellBad'  : { '256cterm': 'underline', '256ctermbg': 'None' },
+  \  'SpellCap'  : { '256cterm': 'undercurl', '256ctermbg': 'None' },
+  \  'error'     : { '256ctermbg': 236 },
+  \  'todo'      : { '256ctermbg': 236 },
   \}
 
   if has('termguicolors') && &termguicolors
@@ -95,15 +110,18 @@ function! UseThemeJellybeans()
 endfunction
 
 function! UseThemeGUI()
-  set termguicolors     " enable true colors support
-  let ayucolor="mirage" " for mirage version of theme
-  colorscheme ayu
+  set background=dark
+  colorscheme PaperColor
+  " colorscheme gotham256
+  " set termguicolors     " enable true colors support
+  " let ayucolor="mirage" " for mirage version of theme
+  " colorscheme ayu
 endfunction
 
 if has('gui_running')
   call UseThemeGUI()
 else
-  call UseThemeJellybeans()
+  call UseThemeTerm()
 endif
 
 nnoremap <silent> <C-n> :NERDTreeToggle<CR>
@@ -168,3 +186,13 @@ let g:session_autoload = 'yes'
 
 set statusline+=%F
 set listchars=eol:$
+set ft=nasm
+
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
+
