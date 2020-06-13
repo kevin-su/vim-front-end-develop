@@ -3,16 +3,12 @@ call plug#begin('~/.vim/plugged')
 
 " plugin section
 
-"Plug 'andreyorst/SimpleWorkspaces.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
-
 Plug 'elzr/vim-json'
 Plug 'plasticboy/vim-markdown'
 Plug 'hdima/python-syntax'
-
-"Plug 'maxmellon/vim-jsx-pretty'
 Plug 'tpope/vim-commentary'
 Plug 'suy/vim-context-commentstring'
 
@@ -20,6 +16,7 @@ Plug 'suy/vim-context-commentstring'
 "Plug 'honza/vim-snippets'
 "Plug 'Yggdroot/indentLine'
 "Plug 'tpope/vim-fugitive'
+Plug 'benmills/vimux'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'mattn/emmet-vim'
@@ -28,29 +25,27 @@ Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'rking/ag.vim'
-Plug 'xolox/vim-session'
-Plug 'xolox/vim-misc'
+Plug 'tpope/vim-obsession'
 Plug 'severin-lemaignan/vim-minimap'
+Plug 'cohama/lexima.vim'
+Plug 'tpope/vim-surround'
+" Plug 'svermeulen/vim-easyclip'
+Plug 'christoomey/vim-system-copy'
 
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'neoclide/coc.nvim', {'do': 'npm install --frozen-lockfile'}
 
-Plug 'editorconfig/editorconfig-vim'
 Plug 'dense-analysis/ale'
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
-Plug 'tpope/vim-surround'
-
 " themes
-"Plug 'ayu-theme/ayu-vim'
-"Plug 'nanotech/jellybeans.vim'
 Plug 'rafi/awesome-vim-colorschemes'
 
 " end vim-plug
 call plug#end()
 
 " Vim with all enhancements
-let g:coc_node_path='~/.nvm/versions/node/v8.17.0/bin/node'
+let g:coc_node_path='~/.nvm/versions/node/v10.13.0/bin/node'
 "command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " fzf
@@ -68,7 +63,7 @@ command! -bang -nargs=* Ag
 \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
 \                 <bang>0)
 
-"let g:prettier#exec_cmd_path = '~/.nvm/versions/node/v8.17.0/bin/prettier'
+let g:prettier#exec_cmd_path = '~/.nvm/versions/node/v8.17.0/bin/prettier'
 "Plug 'prettier/vim-prettier', { 'do': 'npm install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
@@ -127,6 +122,7 @@ endif
 nnoremap <silent> <C-n> :NERDTreeToggle<CR>
 set autochdir
 let NERDTreeChDirMode=2
+let NERDTreeShowHidden=1
 nnoremap <leader>n :NERDTree .<CR>
 
 " Refresh NERDTree pane
@@ -187,12 +183,6 @@ let g:session_autoload = 'yes'
 set statusline+=%F
 set listchars=eol:$
 set ft=nasm
+set mouse+=a
 
-inoremap " ""<left>
-inoremap ' ''<left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
-inoremap {<CR> {<CR>}<ESC>O
-inoremap {;<CR> {<CR>};<ESC>O
-
+set clipboard=unnamed,unnamedplus

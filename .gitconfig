@@ -1,0 +1,11 @@
+[merge]
+	tool = kdiff3
+[mergetool "kdiff3"]
+	cmd = /Applications/kdiff3.app/Contents/MacOS/kdiff3 $BASE $LOCAL $REMOTE -o $MERGED
+[user]
+	name = Kevin Su
+	email = su.kevin@abc.net.au
+[push]
+	default = current
+[core]
+	excludesfile = /Users/suk4k/.gitignore
