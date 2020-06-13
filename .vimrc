@@ -237,49 +237,6 @@ set encoding=utf8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" =Theme
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-function! UseThemeTerm()
-  colorscheme jellybeans
-  let g:jellybeans_use_lowcolor_black = 0
-
-  let g:jellybeans_overrides = {
-  \  'Todo': { 'guifg': '303030', 'guibg': 'f0f000',
-  \              'ctermfg': 'Black', 'ctermbg': 'Yellow',
-  \              'attr': 'bold' },
-  \  'Comment': { 'guifg': '999999' },
-  \  'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
-  \  'MatchParen': { 'guifg': 'ffffff', 'guibg': '556779' },
-  \  'SpecialKey': { '256ctermbg': 'none', '256ctermfg': 'Darkgray' },
-  \  'Whitespace': { '256ctermbg': 'none', '256ctermfg': 'Darkgray' },
-  \  'SpellBad'  : { '256cterm': 'underline', '256ctermbg': 'None' },
-  \  'SpellCap'  : { '256cterm': 'undercurl', '256ctermbg': 'None' },
-  \  'error'     : { '256ctermbg': 236 },
-  \  'todo'      : { '256ctermbg': 236 },
-  \}
-
-  if has('termguicolors') && &termguicolors
-     let g:jellybeans_overrides['background']['guibg'] = 'none'
-  endif
-endfunction
-
-function! UseThemeGUI()
-  set background=dark
-  colorscheme PaperColor
-  " colorscheme gotham256
-  " set termguicolors     " enable true colors support
-  " let ayucolor="mirage" " for mirage version of theme
-  " colorscheme ayu
-endfunction
-
-if has('gui_running')
-  call UseThemeGUI()
-else
-  call UseThemeTerm()
-endif
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
@@ -972,3 +929,49 @@ command! -bang -nargs=* Ag
 \                 <bang>0 ? fzf#vim#with_preview('up:60%')
 \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
 \                 <bang>0)
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" =Theme
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+function! UseThemeTerm()
+  colorscheme jellybeans
+  let g:jellybeans_use_lowcolor_black = 0
+
+  let g:jellybeans_overrides = {
+  \  'Todo': { 'guifg': '303030', 'guibg': 'f0f000',
+  \              'ctermfg': 'Black', 'ctermbg': 'Yellow',
+  \              'attr': 'bold' },
+  \  'Comment': { 'guifg': '999999' },
+  \  'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
+  \  'MatchParen': { 'guifg': 'ffffff', 'guibg': '556779' },
+  \  'SpecialKey': { '256ctermbg': 'none', '256ctermfg': 'Darkgray' },
+  \  'Whitespace': { '256ctermbg': 'none', '256ctermfg': 'Darkgray' },
+  \  'SpellBad'  : { '256cterm': 'underline', '256ctermbg': 'None' },
+  \  'SpellCap'  : { '256cterm': 'undercurl', '256ctermbg': 'None' },
+  \  'error'     : { '256ctermbg': 236 },
+  \  'todo'      : { '256ctermbg': 236 },
+  \}
+
+  if has('termguicolors') && &termguicolors
+     let g:jellybeans_overrides['background']['guibg'] = 'none'
+  endif
+endfunction
+
+function! UseThemeGUI()
+  set background=dark
+  colorscheme PaperColor
+  " colorscheme gotham256
+  " set termguicolors     " enable true colors support
+  " let ayucolor="mirage" " for mirage version of theme
+  " colorscheme ayu
+endfunction
+
+if has('gui_running')
+  call UseThemeGUI()
+else
+  call UseThemeTerm()
+endif
+
+
