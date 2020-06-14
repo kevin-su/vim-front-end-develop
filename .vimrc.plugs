@@ -1,0 +1,46 @@
+Plug 'itchyny/lightline.vim'
+Plug 'mileszs/ack.vim'
+Plug 'terryma/vim-expand-region'
+Plug 'tyru/restart.vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'vim-scripts/bufexplorer.zip'
+Plug 'amix/vim-zenroom2'
+Plug 'maxbrunsfeld/vim-yankstack'
+Plug 'tpope/vim-fugitive'
+
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'elzr/vim-json'
+Plug 'plasticboy/vim-markdown'
+Plug 'hdima/python-syntax'
+Plug 'tpope/vim-commentary'
+Plug 'suy/vim-context-commentstring'
+
+Plug 'editorconfig/editorconfig-vim'
+Plug 'mattn/emmet-vim'
+Plug 'preservim/nerdtree'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'rking/ag.vim'
+Plug 'tpope/vim-obsession'
+Plug 'severin-lemaignan/vim-minimap'
+Plug 'cohama/lexima.vim'
+Plug 'tpope/vim-surround'
+
+Plug 'dense-analysis/ale'
+Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+
+"" themes
+Plug 'rafi/awesome-vim-colorschemes'
+
+"" Plug 'svermeulen/vim-easyclip'
+"Plug 'christoomey/vim-system-copy'
+""Plug 'christoomey/vim-tmux-navigator'
+""Plug 'neoclide/coc.nvim', {'branch': 'release'}
+""Plug 'neoclide/coc.nvim', {'do': 'npm install --frozen-lockfile'}
+""Plug 'valloric/youcompleteme'
+""Plug 'honza/vim-snippets'
+""Plug 'Yggdroot/indentLine'
+"Plug 'benmills/vimux'
+
