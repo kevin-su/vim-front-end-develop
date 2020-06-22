@@ -67,11 +67,23 @@ nmap <leader>w :w!<cr>
 " (useful for handling the permission-denied error)
 command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 
-" restart
-" vim() {
-"     while command vim $@; do
-"     done;
-" }
+" keyboard shortcuts
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+" noremap <leader>l :Align
+" nnoremap <leader>a :Ag<space>
+" nnoremap <leader>b :CtrlPBuffer<CR>
+" nnoremap <leader>d :NERDTreeToggle<CR>
+" nnoremap <leader>f :NERDTreeFind<CR>
+" nnoremap <leader>t :CtrlP<CR>
+" nnoremap <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
+" nnoremap <leader>] :TagbarToggle<CR>
+" nnoremap <leader><space> :call whitespace#strip_trailing()<CR>
+" nnoremap <leader>g :GitGutterToggle<CR>
+noremap <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -152,8 +164,10 @@ set omnifunc=syntaxcomplete#Complete
 " copy and paste
 vnoremap <C-c> :w !pbcopy<CR><CR> noremap <C-v> :r !pbpaste<CR><CR>
 
-"Split auto resize
-autocmd VimResized * wincmd =
+""Split auto resize
+"autocmd VimResized * wincmd =
+" automatically rebalance windows on vim resize
+autocmd VimResized * :wincmd =
 
 set clipboard=unnamed,unnamedplus
 
@@ -357,7 +371,7 @@ fun! CleanExtraSpaces()
 endfun
 
 if has("autocmd")
-    autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
+    autocmd BufWritePre *.txt,*.css,*.scss,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
 endif
 
 
