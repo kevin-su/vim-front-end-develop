@@ -12,6 +12,7 @@ endif
 " end vim-plug
 call plug#end()
 
+" nnoremap <silent><leader>1 :source ~/.vimrc \| :PlugInstall<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: 
@@ -83,6 +84,9 @@ noremap <C-l> <C-w>l
 " nnoremap <leader><space> :call whitespace#strip_trailing()<CR>
 " nnoremap <leader>g :GitGutterToggle<CR>
 noremap <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+
+" set autochdir
+" autocmd BufEnter * silent! lcd %:p:h
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -164,10 +168,8 @@ set omnifunc=syntaxcomplete#Complete
 " copy and paste
 vnoremap <C-c> :w !pbcopy<CR><CR> noremap <C-v> :r !pbpaste<CR><CR>
 
-""Split auto resize
-"autocmd VimResized * wincmd =
-" automatically rebalance windows on vim resize
-autocmd VimResized * :wincmd =
+"Split auto resize
+autocmd VimResized * wincmd =
 
 set clipboard=unnamed,unnamedplus
 
@@ -175,7 +177,8 @@ set clipboard=unnamed,unnamedplus
 set statusline+=%F
 set listchars=eol:$
 set ft=nasm
-set mouse+=a
+set mouse=a
+" set mouse+=a
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -230,6 +233,11 @@ set wildignore+=**/node_modules/**
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set foldmethod=syntax
+set foldlevel=16
+
+map <leader>ss :setlocal spell!<cr>
+
 " " Use spaces instead of tabs
 " set expandtab
 
@@ -247,6 +255,9 @@ set wildignore+=**/node_modules/**
 " set ai "Auto indent
 " set si "Smart indent
 " set wrap "Wrap lines
+
+" set nowrap           " do not automatically wrap on load
+" set formatoptions-=t " do not automatically wrap text when typing
 
 function! UseSpaces()
   set tabstop=2     " Size of a hard tabstop (ts).
@@ -323,6 +334,9 @@ endtry
 " Return to last edit position when opening files (You want this!)
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
+" https://stackoverflow.com/questions/3676388/cursor-positioning-when-entering-insert-mode
+set virtualedit=onemore
+
 
 """"""""""""""""""""""""""""""
 " => Status line
@@ -373,6 +387,7 @@ if has("autocmd")
     autocmd BufWritePre *.txt,*.css,*.scss,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
 endif
 
+autocmd FileType php setlocal noeol binary fileformat=dos
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking
