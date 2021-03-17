@@ -11,35 +11,28 @@ Plug 'tpope/vim-fugitive'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
-Plug 'peitalin/vim-jsx-typescript'
-Plug 'jparise/vim-graphql' 
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-
 Plug 'elzr/vim-json'
 Plug 'plasticboy/vim-markdown'
 Plug 'hdima/python-syntax'
 Plug 'tpope/vim-commentary'
 Plug 'suy/vim-context-commentstring'
-" Plug 'pseewald/vim-anyfold'
-Plug 'Konfekt/FastFold'
-Plug 'zhimsel/vim-stay'
-Plug 'airblade/vim-rooter'
-Plug 'mhinz/vim-startify'
-Plug 'chiedo/vim-case-convert'
 
 Plug 'editorconfig/editorconfig-vim'
 Plug 'mattn/emmet-vim'
 Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'rking/ag.vim'
+Plug 'dyng/ctrlsf.vim'
 Plug 'tpope/vim-obsession'
 Plug 'severin-lemaignan/vim-minimap'
-Plug 'gsiano/vmux-clipboard'
 Plug 'cohama/lexima.vim'
 Plug 'tpope/vim-surround'
-Plug 'inkarkat/vim-SyntaxRange'
+
+Plug 'voldikss/vim-floaterm'
+Plug 'jremmen/vim-ripgrep'
+Plug 'francoiscabrol/ranger.vim'
+Plug 'dbakker/vim-projectroot'
 
 Plug 'dense-analysis/ale'
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
@@ -50,7 +43,8 @@ Plug 'rafi/awesome-vim-colorschemes'
 "" Plug 'svermeulen/vim-easyclip'
 "Plug 'christoomey/vim-system-copy'
 ""Plug 'christoomey/vim-tmux-navigator'
-""Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'voldikss/vim-floaterm'
 ""Plug 'neoclide/coc.nvim', {'do': 'npm install --frozen-lockfile'}
 ""Plug 'valloric/youcompleteme'
 ""Plug 'honza/vim-snippets'
