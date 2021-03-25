@@ -264,3 +264,23 @@ let vim_markdown_folding_disabled = 1
 "   autocmd!
 "   autocmd VimEnter * :Vexplore
 " augroup END
+
+
+""""""""""""""""""""""""""""""
+" => Tab
+""""""""""""""""""""""""""""""
+" Go to last active tab
+
+au TabLeave * let g:lasttab = tabpagenr()
+nnoremap <silent> <c-l> :exe "tabn ".g:lasttab<cr>
+vnoremap <silent> <c-l> :exe "tabn ".g:lasttab<cr>
+" nnoremap <c-left> :tabprevious<CR>
+" nnoremap <c-right> :tabnext<CR>
+
+
+""""""""""""""""""""""""""""""
+" => Session
+""""""""""""""""""""""""""""""
+" let g:sessions_dir = '~/vim-sessions'
+" exec 'nnoremap <Leader>ss :mks! ' . g:session_dir . '/*.vim<C-D><BS><BS><BS><BS><BS>'
+" exec 'nnoremap <Leader>sr :so ' . g:session_dir. '/*.vim<C-D><BS><BS><BS><BS><BS>'

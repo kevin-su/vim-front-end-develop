@@ -24,7 +24,10 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'rking/ag.vim'
 Plug 'dyng/ctrlsf.vim'
+
 Plug 'tpope/vim-obsession'
+Plug 'thaerkh/vim-workspace'
+
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'cohama/lexima.vim'
 Plug 'tpope/vim-surround'
