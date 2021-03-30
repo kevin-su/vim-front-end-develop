@@ -284,3 +284,7 @@ vnoremap <silent> <c-l> :exe "tabn ".g:lasttab<cr>
 " let g:sessions_dir = '~/vim-sessions'
 " exec 'nnoremap <Leader>ss :mks! ' . g:session_dir . '/*.vim<C-D><BS><BS><BS><BS><BS>'
 " exec 'nnoremap <Leader>sr :so ' . g:session_dir. '/*.vim<C-D><BS><BS><BS><BS><BS>'
+
+
+
+

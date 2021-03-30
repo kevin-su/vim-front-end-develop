@@ -26,7 +26,6 @@ Plug 'rking/ag.vim'
 Plug 'dyng/ctrlsf.vim'
 
 Plug 'tpope/vim-obsession'
-Plug 'thaerkh/vim-workspace'
 
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'cohama/lexima.vim'
@@ -39,6 +38,8 @@ Plug 'dbakker/vim-projectroot'
 
 Plug 'dense-analysis/ale'
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+
+Plug 'pseewald/vim-anyfold'
 
 "" themes
 Plug 'rafi/awesome-vim-colorschemes'
