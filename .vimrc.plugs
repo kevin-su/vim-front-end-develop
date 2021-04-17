@@ -44,7 +44,7 @@ Plug 'pseewald/vim-anyfold'
 "" themes
 Plug 'rafi/awesome-vim-colorschemes'
 
-"" Plug 'svermeulen/vim-easyclip'
+Plug 'airblade/vim-rooter'
 "Plug 'christoomey/vim-system-copy'
 ""Plug 'christoomey/vim-tmux-navigator'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}

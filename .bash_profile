@@ -13,7 +13,7 @@ unset color_prompt force_color_prompt
 
 # Maximum number of history lines in memory
 export HISTSIZE=990000
-# Maximum number of history lines on disk
+# Maximum number of history lines on disk/Users/kevinsu/vim-front-end-develop/.bashrc
 export HISTFILESIZE=990000
 # Ignore duplicate lines
 export HISTCONTROL=ignoredups:erasedups
